@@ -8,6 +8,9 @@ import {
     UploadOutlined,
 } from '@ant-design/icons';
 
+import { Link } from 'react-router-dom';
+
+
 const { Header, Sider, Content } = Layout;
 
 class MainLayout extends React.Component {
@@ -16,7 +19,6 @@ class MainLayout extends React.Component {
         this.state = {
             collapsed: false,
             theme: 'light',
-            current: '1',
         };
     }
 
@@ -31,14 +33,8 @@ class MainLayout extends React.Component {
         this.setState({
             theme: value ? 'light' : 'dark',
         });
-    };
+    }
 
-    handleClick = e => {
-        console.log('click ', e);
-        this.setState({
-            current: e.key,
-        });
-    };
 
     render() {
         return (
@@ -50,23 +46,23 @@ class MainLayout extends React.Component {
                         onChange={this.changeTheme}
                         checkedChildren="Light"
                         unCheckedChildren="Dark"
+                        style={{ marginLeft: '5px' }}
                     />
                     <br />
                     <br />
                     <Menu
                         theme={this.state.theme}
-                        onClick={this.handleClick}
                         defaultOpenKeys={['sub1']}
-                        selectedKeys={[this.state.current]}
+                        defaultSelectedKeys={[window.location.pathname]}
                         mode="inline">
-                        <Menu.Item key="1" icon={<UserOutlined />}>
-                            nav 1
+                        <Menu.Item key="/" icon={<UserOutlined />}>
+                            <Link to="/">Home</Link>
                         </Menu.Item>
-                        <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-                            nav 2
+                        <Menu.Item key="/myprofile" icon={<UploadOutlined />}>
+                            <Link to="/myprofile">My Profile</Link>
                         </Menu.Item>
-                        <Menu.Item key="3" icon={<UploadOutlined />}>
-                            nav 3
+                        <Menu.Item key="/applied" icon={<VideoCameraOutlined />}>
+                            <Link to="/applied">Jobs Applied</Link>
                         </Menu.Item>
                     </Menu>
                 </Sider>
