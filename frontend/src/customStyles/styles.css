@@ -30,3 +30,7 @@
   text-transform: uppercase;
   color: #ffffff;
 }
+.ant-layout-header .anticon > svg {
+  font-size: 22px;
+  color: rgb(2, 69, 131) !important;
+}

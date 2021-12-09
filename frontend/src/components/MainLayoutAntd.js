@@ -8,8 +8,6 @@ import {
     UploadOutlined,
 } from '@ant-design/icons';
 
-import 'antd/dist/antd.css';
-
 const { Header, Sider, Content } = Layout;
 
 class MainLayout extends React.Component {
