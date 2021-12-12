@@ -18,7 +18,7 @@ class MainLayout extends React.Component {
         super(props)
         this.state = {
             collapsed: false,
-            theme: 'light',
+            theme: this.props.theme ? this.props.theme : 'light',
         };
     }
 
@@ -37,6 +37,7 @@ class MainLayout extends React.Component {
 
 
     render() {
+        console.log(this.props)
         return (
             <Layout>
                 <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
