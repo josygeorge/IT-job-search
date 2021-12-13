@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom'
 import { Row, Col, Button } from 'antd';
 import moment from 'moment';
 
@@ -24,18 +25,15 @@ function HomePage() {
                                 <p>{job.company}</p><hr />
                                 <p>{job.jobInfo}</p>
                                 <div className="flex-layout">
-                                    <p>Package: <b>{job.salaryRangeLower}-{job.salaryRangeUpper}</b>, </p>
-                                    <p style={{ marginLeft: '22px' }}>Experience: <b>{job.experience}</b> years</p>
+                                    <p>Package: <strong> &#163;{job.salaryRangeLower} - &#163;{job.salaryRangeUpper}</strong>, </p>
+                                    <p style={{ marginLeft: '22px' }}>Experience: <strong>{job.experience}</strong> years</p>
                                 </div>
                                 <hr />
                                 <div className="flex-layout justify-content-between">
-                                    <Button type="primary">More</Button>
+                                    <Link to={`/jobdetails/${job._id}`}><Button type="primary">More</Button></Link>
                                     <p><em>Posted on:</em> {moment(job.createdAt).format('MMM DD, yyyy')}</p>
-
                                 </div>
-
                             </div>
-
                         </Col>
                     })
                 }
@@ -44,4 +42,4 @@ function HomePage() {
     )
 }
 
-export default HomePage
+export default HomePage;

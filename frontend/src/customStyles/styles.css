@@ -63,6 +63,9 @@ p {
   padding: 2px;
   font-size: 14px;
 }
+.job-details p {
+  font-size: 16px;
+}
 .box-shadow-css {
   box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
 }
