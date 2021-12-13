@@ -20,8 +20,12 @@
   background: #fff;
 }
 .ant-layout-sider {
-  height: 105vh;
+  /* height: 105vh; */
   background: rgb(2, 69, 131) !important;
+  position: sticky;
+  overflow: auto;
+  height: 100%;
+  top: 0;
 }
 .ant-layout-sider .logo {
   padding: 12px 2px;
@@ -33,4 +37,32 @@
 .ant-layout-header .anticon > svg {
   font-size: 22px;
   color: rgb(2, 69, 131) !important;
+}
+.ant-layout-content {
+  margin: 0 !important;
+  padding: 12px !important;
+}
+/* Loader */
+.loader {
+  position: fixed;
+  left: 55%;
+  top: 40%;
+  z-index: 9999;
+}
+/* Custom */
+.jobs {
+  padding: 12px;
+  border-radius: 12px;
+}
+.flex-layout {
+  display: flex;
+  align-items: center;
+}
+p {
+  margin: 2px;
+  padding: 2px;
+  font-size: 14px;
+}
+.box-shadow-css {
+  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
 }

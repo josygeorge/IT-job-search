@@ -4,6 +4,9 @@ const initialState = {
 
 export const jobsReducer = (state = initialState, action) => {
     switch (action.type) {
-        default: return state;
+        case 'GET_ALL_JOBS':
+            return { ...state, jobs: action.payload }
+        default:
+            return state;
     }
 }

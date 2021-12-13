@@ -3,9 +3,10 @@ import { Layout, Menu, Switch } from 'antd';
 import {
     MenuUnfoldOutlined,
     MenuFoldOutlined,
+    HomeOutlined,
+    BarChartOutlined,
+    ProfileOutlined,
     UserOutlined,
-    VideoCameraOutlined,
-    UploadOutlined,
 } from '@ant-design/icons';
 
 import { Link } from 'react-router-dom';
@@ -37,7 +38,6 @@ class MainLayout extends React.Component {
 
 
     render() {
-        console.log(this.props)
         return (
             <Layout>
                 <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
@@ -56,19 +56,19 @@ class MainLayout extends React.Component {
                         defaultOpenKeys={['sub1']}
                         defaultSelectedKeys={[window.location.pathname]}
                         mode="inline">
-                        <Menu.Item key="/" icon={<UserOutlined />}>
+                        <Menu.Item key="/" icon={<HomeOutlined />}>
                             <Link to="/">Home</Link>
                         </Menu.Item>
-                        <Menu.Item key="/myprofile" icon={<UploadOutlined />}>
+                        <Menu.Item key="/myprofile" icon={<UserOutlined />}>
                             <Link to="/myprofile">My Profile</Link>
                         </Menu.Item>
-                        <Menu.Item key="/applied" icon={<VideoCameraOutlined />}>
+                        <Menu.Item key="/applied" icon={<BarChartOutlined />}>
                             <Link to="/applied">Jobs Applied</Link>
                         </Menu.Item>
                     </Menu>
                 </Sider>
                 <Layout className="site-layout">
-                    <Header className="site-layout-background" style={{ padding: 0 }}>
+                    <Header className="site-layout-background" style={{ padding: 0, position: 'sticky', overflow: 'auto', top: 0, zIndex: 9999 }}>
                         {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
                             className: 'trigger',
                             onClick: this.toggle,
