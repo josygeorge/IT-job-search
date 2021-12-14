@@ -1,6 +1,6 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const Jobs = require('../models/jobs');
+import Jobs from '../models/jobs.js';
 
 router.get('/all-jobs', async (req, res) => {
     try {
@@ -11,4 +11,4 @@ router.get('/all-jobs', async (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;
