@@ -12,8 +12,8 @@ function HomePage() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getAllJobs())
-    }, [])
+        dispatch(getAllJobs());
+    }, [dispatch])
     return (
         <MainLayout>
             <Row gutter={[14, 14]}>
@@ -25,13 +25,14 @@ function HomePage() {
                                 <p>{job.company}</p><hr />
                                 <p>{job.jobInfo}</p>
                                 <div className="flex-layout">
-                                    <p>Package: <strong> &#163;{job.salaryRangeLower} - &#163;{job.salaryRangeUpper}</strong>, </p>
-                                    <p style={{ marginLeft: '22px' }}>Experience: <strong>{job.experience}</strong> years</p>
+                                    <p style={{ width: '60%' }}>Package: <strong> &#163;{job.salaryRangeLower} - &#163;{job.salaryRangeUpper}</strong>, </p>
+                                    <p style={{ width: '40%' }}>Experience: <strong>{job.experience}</strong> years</p>
                                 </div>
                                 <hr />
+
                                 <div className="flex-layout justify-content-between">
                                     <Link to={`/jobdetails/${job._id}`}><Button type="primary">More</Button></Link>
-                                    <p><em>Posted on:</em> {moment(job.createdAt).format('MMM DD, yyyy')}</p>
+                                    <p><em>Posted on: <strong style={{ fontSize: '12px' }}>{moment(job.createdAt).format('MMM DD, yyyy')}</strong></em></p>
                                 </div>
                             </div>
                         </Col>

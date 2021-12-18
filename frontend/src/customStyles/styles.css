@@ -21,13 +21,19 @@
 }
 .ant-layout-sider {
   /* height: 105vh; */
-  background: rgb(2, 69, 131) !important;
+  background: rgb(3, 87, 165) !important;
   position: sticky;
   overflow: auto;
   height: 100%;
   top: 0;
 }
+.ant-menu {
+  background: rgb(2, 56, 107) !important;
+  color: #b8dafa;
+}
 .ant-layout-sider .logo {
+  margin-top: 8px;
+  margin-bottom: 6px;
   padding: 12px 2px;
   text-align: center;
   font-weight: 700;
@@ -42,6 +48,9 @@
   margin: 0 !important;
   padding: 12px !important;
 }
+.ant-message {
+  z-index: 9999;
+}
 /* Loader */
 .loader {
   position: fixed;
@@ -50,7 +59,8 @@
   z-index: 9999;
 }
 /* Custom */
-.jobs {
+.jobs,
+.tab-2-col {
   padding: 12px;
   border-radius: 12px;
 }
@@ -67,5 +77,36 @@ p {
   font-size: 16px;
 }
 .box-shadow-css {
-  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+  /* box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px; */
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
+.box-shadow-css-profile {
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+}
+.login {
+  padding-top: 125px;
+}
+.register {
+  padding-top: 25px;
+}
+.login input,
+.register input,
+.profile input,
+.profile textarea,
+.postnewjob input,
+.postnewjob textarea,
+.ant-input-number,
+.ant-input-number-group-addon {
+  border-color: #9eccf8;
+}
+.tab-2 .ant-form-item,
+.postnewjob .ant-input-number-group-wrapper {
+  width: 100%;
+}
+/* .tab-2 .ant-form-item .ant-form-item-label {
+  width: 15%;
+}
+.tab-2 .ant-form-item .ant-form-item-control {
+  width: 75%;
+} */

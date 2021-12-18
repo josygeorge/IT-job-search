@@ -13,7 +13,7 @@ const jobSchema = new mongoose.Schema({
     salaryRangeLower: { type: Number, required: true },
     salaryRangeUpper: { type: Number, required: true },
     companyEmail: { type: String, required: true },
-    companyPhone: { type: String, required: true },
+    phone: { type: String, required: true },
     candidatesApplied: { type: Array, default: [], required: true },
     postedByUser: { type: String, required: true }
 }, {

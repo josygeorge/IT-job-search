@@ -1,14 +1,18 @@
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-
-import HomePage from './pages/HomePage';
-import Applied from './pages/Applied';
-import MyProfile from './pages/MyProfile';
-import JobDetails from './pages/JobDetails';
+import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
 
 import 'antd/dist/antd.css';
 import { Spin } from 'antd';
 import './customStyles/styles.css';
 import { useSelector } from 'react-redux';
+
+import HomePage from './pages/HomePage';
+import Applied from './pages/Applied';
+import MyProfile from './pages/Profile/MyProfile';
+import JobDetails from './pages/Jobs/JobDetails';
+import PostNewJob from './pages/Jobs/PostNewJob';
+import Register from './pages/Register';
+import Login from './pages/Login';
+import MyProfileEdit from './pages/Profile/MyProfileEdit';
 
 
 function App() {
@@ -21,13 +25,28 @@ function App() {
 
       }
       <Router>
-        <Route exact path='/' component={HomePage} />
-        <Route exact path='/applied' component={Applied} />
-        <Route exact path='/myprofile' component={MyProfile} />
-        <Route exact path='/jobdetails/:id' component={JobDetails} />
+        <Route exact path='/register' component={Register} />
+        <Route exact path='/login' component={Login} />
+        <ProtectedRoute exact path='/' component={HomePage} />
+        <ProtectedRoute exact path='/applied' component={Applied} />
+        <ProtectedRoute exact path='/myprofile' component={MyProfile} />
+        <ProtectedRoute exact path='/myprofile-edit' component={MyProfileEdit} />
+        <ProtectedRoute exact path='/jobdetails/:id' component={JobDetails} />
+        <ProtectedRoute exact path='/postnewjob' component={PostNewJob} />
+
       </Router>
     </div>
   );
 }
 
 export default App;
+
+export function ProtectedRoute(props) {
+  const user = localStorage.getItem('user');
+  if (!user) {
+    return <Redirect to='/login' />
+  }
+  else {
+    return <Route {...props} />
+  }
+}

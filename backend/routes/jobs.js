@@ -11,4 +11,14 @@ router.get('/all-jobs', async (req, res) => {
     }
 });
 
+router.post('/post-new-job', async (req, res) => {
+    try {
+        const newJob = new Jobs(req.body);
+        await newJob.save();
+        res.send('Job Posted Successfully')
+    } catch (error) {
+        return res.status(400).json(error);
+    }
+})
+
 export default router;

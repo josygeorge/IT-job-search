@@ -3,10 +3,12 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { jobsReducer } from './reducers/jobsReducer';
 import { loaderReducer } from './reducers/loaderReducer';
+import { themeModeReducer } from './reducers/themeModeReducer';
 
 const rootReducer = combineReducers({
     jobsReducer,
     loaderReducer,
+    themeModeReducer
 });
 
 // Create Store

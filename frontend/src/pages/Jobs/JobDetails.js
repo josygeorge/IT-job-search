@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Button } from 'antd';
 import moment from 'moment';
-import MainLayout from '../components/MainLayoutAntd';
+import MainLayout from '../../components/MainLayoutAntd';
 
 function JobDetails(props) {
     const jobID = props.match.params.id;

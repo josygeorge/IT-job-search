@@ -1,3 +1,4 @@
+import { message } from 'antd';
 import Axios from 'axios';
 
 export const getAllJobs = () => async dispatch => {
@@ -9,9 +10,28 @@ export const getAllJobs = () => async dispatch => {
             payload: data
         })
         dispatch({ type: 'LOADING', payload: false })
-
     } catch (error) {
         console.log(error);
         dispatch({ type: 'LOADING', payload: false })
+    }
+}
+
+export const postNewJob = (values) => async dispatch => {
+    // push user ID to the post new job request object - the jobs collection requires the info - 'who posted the job'.
+    values.postedByUser = JSON.parse(localStorage.getItem('user'))._id;
+
+    dispatch({ type: 'LOADING', payload: true })
+    try {
+        const response = await Axios.post('/api/jobs/post-new-job', values);
+        dispatch({ type: 'LOADING', payload: false });
+        if (response) {
+            message.success('Job Posted Successfully!')
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 1000)
+        }
+    } catch (error) {
+        dispatch({ type: 'LOADING', payload: false });
+        message.error(error)
     }
 }
