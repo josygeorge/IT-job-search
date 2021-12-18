@@ -8,14 +8,14 @@ export const register = async (req, res) => {
         console.log(req.body)
         const { email, password, firstName, lastName } = req.body;
         // Validation
-        if (!firstName) return res.status(400).send('First name is required!')
-        if (!lastName) return res.status(400).send('Last name is required!')
+        if (!firstName) return res.status(400).json({ message: 'First name is required!' })
+        if (!lastName) return res.status(400).json({ message: 'Last name is required!' })
         if (!password || password.length < 6) {
-            return res.status(400).send('Password should be min 6 characters in length')
+            return res.status(400).json({ message: 'Password should be min 6 characters in length' })
         }
         // Mongoose will not execute a query until then or exec has been called upon it.
         let userExists = await Users.findOne({ email }).exec()
-        if (userExists) return res.status(400).send('User / Email already exists!')
+        if (userExists) return res.status(400).json({ message: 'User / Email already exists!' })
         // Assigning Hashed Password calling function
         const hashedPassword = await hashPassword(password);
         // Register User
@@ -24,7 +24,7 @@ export const register = async (req, res) => {
         await newUser.save();
         console.log("Saved User");
         //res.send('User created!');
-        return res.json({ ok: true })
+        return res.status(200).json({ ok: true, message: 'User Registered Successfully!' })
     } catch (err) {
         console.log(err)
         return res.status(400).json(err)
@@ -85,12 +85,12 @@ export const updateUser = async (req, res) => {
     }
 }
 
-// export const logout = async (req, res) => {
-//     try {
-//         res.clearCookie("token")
-//         return res.json({ message: "User logged out!" })
-//     }
-//     catch (err) {
-//         console.log(err)
-//     }
-// }
+export const logout = async (req, res) => {
+    try {
+        res.clearCookie("token")
+        return res.json({ message: "User logged out!" })
+    }
+    catch (err) {
+        console.log(err)
+    }
+}

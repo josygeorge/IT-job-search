@@ -29,7 +29,7 @@ function Register() {
         else {
             //console.log(values);
             dispatch(registerUser(values));
-            form.resetFields();
+            //form.resetFields();
         }
     }
     return (

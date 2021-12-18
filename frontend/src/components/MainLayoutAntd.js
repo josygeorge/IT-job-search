@@ -6,11 +6,13 @@ import {
     HomeOutlined,
     BarChartOutlined,
     UserOutlined,
-    PlusCircleOutlined
+    PlusCircleOutlined,
+    LogoutOutlined
 } from '@ant-design/icons';
 
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { logoutUser } from '../redux/actions/usersActions';
 
 
 const { Header, Sider, Content } = Layout;
@@ -30,6 +32,9 @@ function MainLayout(props) {
             type: 'THEME_MODE',
             payload: value ? 'light' : 'dark'
         })
+    }
+    const logout = async () => {
+        dispatch(logoutUser());
     }
     return (
         <Layout>
@@ -60,6 +65,9 @@ function MainLayout(props) {
                     </Menu.Item>
                     <Menu.Item key="/postnewjob" icon={<PlusCircleOutlined />}>
                         <Link to="/postnewjob">Post New Job</Link>
+                    </Menu.Item>
+                    <Menu.Item key="/logout" icon={<LogoutOutlined />}>
+                        <Link to='/' onClick={logout}>Logout</Link>
                     </Menu.Item>
                 </Menu>
             </Sider>

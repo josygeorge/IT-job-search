@@ -25,8 +25,9 @@ function App() {
 
       }
       <Router>
-        <Route exact path='/register' component={Register} />
         <Route exact path='/login' component={Login} />
+        <Route exact path='/register' component={Register} />
+
         <ProtectedRoute exact path='/' component={HomePage} />
         <ProtectedRoute exact path='/applied' component={Applied} />
         <ProtectedRoute exact path='/myprofile' component={MyProfile} />

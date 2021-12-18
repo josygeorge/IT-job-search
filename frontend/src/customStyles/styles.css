@@ -54,7 +54,7 @@
 /* Loader */
 .loader {
   position: fixed;
-  left: 55%;
+  left: 50%;
   top: 40%;
   z-index: 9999;
 }
