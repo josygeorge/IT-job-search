@@ -35,18 +35,17 @@ export const loginUser = (values) => async dispatch => {
 export const logoutUser = () => async dispatch => {
     dispatch({ type: 'LOADING', payload: true });
     try {
+
         localStorage.removeItem('user')
         const { data } = await axios.get('/api/users/logout')
         // notification
         message.info(data.message);
-        window.location.reload();
+        //window.location.reload();
         dispatch({ type: 'LOADING', payload: false });
     } catch (error) {
         dispatch({ type: 'LOADING', payload: false });
         message.error(error);
     }
-
-    //router.push("/login")
 }
 
 export const updateUser = (values) => async dispatch => {

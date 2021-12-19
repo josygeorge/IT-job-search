@@ -15,7 +15,7 @@ function HomePage() {
         dispatch(getAllJobs());
     }, [dispatch])
     return (
-        <MainLayout>
+        <MainLayout searchShow={true}>
             <Row gutter={[14, 14]}>
                 {
                     jobs.map((job) => {

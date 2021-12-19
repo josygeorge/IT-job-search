@@ -35,3 +35,46 @@ export const postNewJob = (values) => async dispatch => {
         message.error(error)
     }
 }
+
+export const filterSearchJobs = (filterSearchKey) => async dispatch => {
+    dispatch({ type: 'LOADING', payload: true })
+    try {
+        const { data } = await Axios.get('/api/jobs/all-jobs');
+        const jobs = data;
+        // Search on Job title
+        const filteredJobs = jobs.filter(job => job.jobTitle.toLowerCase().includes(filterSearchKey.toLowerCase().trim()));
+
+        //SEARCH ANYTHING LOGIC below ---> * need to work more
+        /* const filteredJobs = jobs.filter(obj =>
+            Object.keys(obj)
+                .some(key => {
+                    if (obj[key] !== null) {
+                        const tempKey = obj[key].toString().toLowerCase();
+                        const tempSearch = filterSearchKey.toLowerCase();
+                        return tempKey.includes(tempSearch);
+                    }
+                })
+        ); */
+        // if no job is filtered out, show message
+        if (filteredJobs.length < 1) {
+            message.info({
+                key: 'no-jobs',
+                content: 'NO JOBS AVAILABLE',
+                duration: 0,
+                style: {
+                    marginTop: '20vh',
+                },
+            })
+        } else {
+            message.destroy('no-jobs');
+        }
+        dispatch({
+            type: 'GET_ALL_JOBS',
+            payload: filteredJobs
+        })
+        dispatch({ type: 'LOADING', payload: false })
+    } catch (error) {
+        console.log(error);
+        dispatch({ type: 'LOADING', payload: false })
+    }
+}
