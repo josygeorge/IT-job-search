@@ -58,8 +58,8 @@ function MainLayout(props) {
                     defaultOpenKeys={['sub1']}
                     defaultSelectedKeys={[window.location.pathname]}
                     mode="inline">
-                    <Menu.Item key="/home" icon={<HomeOutlined />}>
-                        <Link to="/home">Home</Link>
+                    <Menu.Item key="/" icon={<HomeOutlined />}>
+                        <Link to="/">Home</Link>
                     </Menu.Item>
                     <Menu.Item key="/myprofile" icon={<UserOutlined />}>
                         <Link to="/myprofile">My Profile</Link>
@@ -74,7 +74,7 @@ function MainLayout(props) {
                         <Popconfirm
                             title="Are you sure to logout?"
                             onConfirm={logout}
-                            onCancel={() => history.push("/home")}
+                            onCancel={() => history.push("/")}
                             okText="Yes"
                             cancelText="No"
                         >

@@ -25,10 +25,10 @@ function App() {
 
       }
       <Router>
-        <Route exact path='/' component={Login} />
+        <Route exact path='/login' component={Login} />
         <Route exact path='/register' component={Register} />
 
-        <ProtectedRoute exact path='/home' component={HomePage} />
+        <ProtectedRoute exact path='/' component={HomePage} />
         <ProtectedRoute exact path='/applied' component={Applied} />
         <ProtectedRoute exact path='/myprofile' component={MyProfile} />
         <ProtectedRoute exact path='/myprofile-edit' component={MyProfileEdit} />
@@ -45,7 +45,7 @@ export default App;
 export function ProtectedRoute(props) {
   const user = localStorage.getItem('user');
   if (!user) {
-    return <Redirect to='/' />
+    return <Redirect to='/login' />
   }
   else {
     return <Route {...props} />
