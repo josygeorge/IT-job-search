@@ -1,5 +1,6 @@
 import express, { urlencoded } from 'express';
 // const express = require('express');
+import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
 import './config/db.js';
@@ -11,6 +12,7 @@ dotenv.config()
 const app = express();
 
 // middleware
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
 
