@@ -7,6 +7,8 @@ import './config/db.js';
 import jobsRoute from './routes/jobs.js';
 import usersRoute from './routes/users.js';
 
+const __dirname = path.resolve(path.dirname(''));
+
 dotenv.config()
 
 const app = express();
@@ -23,9 +25,9 @@ app.use('/api/jobs', jobsRoute);
 
 // Production config
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, 'frontend/build')));
+    app.use(express.static(path.join(__dirname, '/frontend/build')));
     //app.use('/', express.static('frontend/build'));
-    app.get("*", (req, res) => {
+    app.get("/*", (req, res) => {
         res.sendFile(path.join(__dirname, 'frontend/build/index.html'))
     });
 } else {
