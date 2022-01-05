@@ -90,6 +90,18 @@ p {
 .register {
   padding-top: 25px;
 }
+.login .ant-col,
+.register .ant-col {
+  background-color: rgb(2, 56, 107);
+}
+.login h3,
+.login label,
+.login span,
+.register h3,
+.register label,
+.register span {
+  color: #b8dafa;
+}
 .login input,
 .register input,
 .profile input,
@@ -107,9 +119,3 @@ p {
 .postnewjob .ant-input-number-group-wrapper {
   width: 100%;
 }
-/* .tab-2 .ant-form-item .ant-form-item-label {
-  width: 15%;
-}
-.tab-2 .ant-form-item .ant-form-item-control {
-  width: 75%;
-} */
