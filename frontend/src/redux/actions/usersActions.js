@@ -54,12 +54,12 @@ export const updateUser = (values) => async dispatch => {
 
     dispatch({ type: 'LOADING', payload: true });
     try {
-        const user = await axios.post('/api/users/update', values);
-        message.success('User Updated')
-        localStorage.setItem('user', JSON.stringify(user.data));
-        setTimeout(() => {
-            window.location.href = "/myprofile"; // redirect to home page
-        }, 500);
+        await axios.post('/api/users/update', values)
+            .then(res => {
+                window.location.href = "/myprofile"; // redirect
+                message.success('User Updated')
+                localStorage.setItem('user', JSON.stringify(res.data));
+            });
         dispatch({ type: 'LOADING', payload: false });
     } catch (error) {
         dispatch({ type: 'LOADING', payload: false });

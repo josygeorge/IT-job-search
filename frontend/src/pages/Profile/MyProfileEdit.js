@@ -206,4 +206,4 @@ function MyProfileEdit() {
     )
 }
 
-export default MyProfileEdit
+export default MyProfileEdit;

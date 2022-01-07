@@ -14,9 +14,9 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import MyProfileEdit from './pages/Profile/MyProfileEdit';
 
-
 function App() {
-  const { loading } = useSelector(state => state.loaderReducer)
+  const { loading } = useSelector(state => state.loaderReducer);
+
   return (
     <div className="App">
       {loading && <div className="loader">

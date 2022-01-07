@@ -8,7 +8,7 @@ import { themeModeReducer } from './reducers/themeModeReducer';
 const rootReducer = combineReducers({
     jobsReducer,
     loaderReducer,
-    themeModeReducer
+    themeModeReducer,
 });
 
 // Create Store
