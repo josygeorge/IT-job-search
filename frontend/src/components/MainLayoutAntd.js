@@ -96,7 +96,7 @@ function MainLayout(props) {
                         <div style={{ display: props.searchShow ? 'inline' : 'none' }}>
                             <FilterSearch />
                         </div>
-                        <div className='mr-2 px-2 pt-2 border border-warning'>
+                        <div className='mr-2 px-2 pt-2 user-info'>
                             <h5>
                                 <UserOutlined />
                                 <span> {user.firstName} {user.lastName}</span>

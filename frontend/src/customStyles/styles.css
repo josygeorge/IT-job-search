@@ -19,12 +19,14 @@
 .site-layout .site-layout-background {
   background: #fff;
 }
+.site-layout .anticon {
+  vertical-align: 0.2rem;
+}
 .ant-layout-sider {
-  /* height: 105vh; */
   background: rgb(3, 87, 165) !important;
   position: sticky;
   overflow: auto;
-  height: 100%;
+  height: 100vh;
   top: 0;
 }
 .ant-menu-dark {
@@ -40,9 +42,17 @@
   text-transform: uppercase;
   color: #ffffff;
 }
-.ant-layout-header .anticon > svg {
+.site-layout .user-info {
+  background-color: rgb(2, 56, 107);
+  border-radius: 0.25rem;
+}
+.site-layout .ant-layout-header .anticon > svg {
+  color: rgb(2, 56, 107);
   font-size: 22px;
-  color: rgb(2, 69, 131) !important;
+}
+.site-layout .user-info span,
+.site-layout .user-info .anticon > svg {
+  color: rgb(162, 212, 224);
 }
 .ant-layout-content {
   margin: 0 !important;
@@ -91,7 +101,8 @@ p {
   padding-top: 25px;
 }
 .login .ant-col,
-.register .ant-col {
+.register .ant-col,
+.ant-col .jobs {
   background-color: rgb(2, 56, 107);
 }
 .login h3,
@@ -99,8 +110,10 @@ p {
 .login span,
 .register h3,
 .register label,
-.register span {
-  color: #b8dafa;
+.register span,
+.ant-col .jobs p,
+.ant-col .jobs h5 {
+  color: #d4eafd;
 }
 .login input,
 .register input,
