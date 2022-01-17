@@ -35,6 +35,24 @@ export const postNewJob = (values) => async dispatch => {
         message.error(error)
     }
 }
+export const editJob = (values) => async dispatch => {
+    console.log(values)
+    // all fields are present in the values
+    dispatch({ type: 'LOADING', payload: true })
+    try {
+        const response = await Axios.post('/api/jobs/edit-job', values);
+        dispatch({ type: 'LOADING', payload: false });
+        if (response) {
+            message.success('Job Updated Successfully!')
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 1000)
+        }
+    } catch (error) {
+        dispatch({ type: 'LOADING', payload: false });
+        message.error(error)
+    }
+}
 
 export const filterSearchJobs = (filterSearchKey) => async dispatch => {
     dispatch({ type: 'LOADING', payload: true })

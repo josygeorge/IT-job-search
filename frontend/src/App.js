@@ -13,6 +13,8 @@ import PostNewJob from './pages/Jobs/PostNewJob';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import MyProfileEdit from './pages/Profile/MyProfileEdit';
+import PostedJobs from './pages/Jobs/PostedJobs';
+import EditJob from './pages/Jobs/EditJob';
 
 function App() {
   const { loading } = useSelector(state => state.loaderReducer);
@@ -33,7 +35,9 @@ function App() {
         <ProtectedRoute exact path='/myprofile' component={MyProfile} />
         <ProtectedRoute exact path='/myprofile-edit' component={MyProfileEdit} />
         <ProtectedRoute exact path='/jobdetails/:id' component={JobDetails} />
+        <ProtectedRoute exact path='/editjob/:id' component={EditJob} />
         <ProtectedRoute exact path='/postnewjob' component={PostNewJob} />
+        <ProtectedRoute exact path='/postedjobs' component={PostedJobs} />
 
       </Router>
     </div>

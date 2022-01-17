@@ -7,6 +7,7 @@ import {
     BarChartOutlined,
     UserOutlined,
     PlusCircleOutlined,
+    CheckCircleOutlined,
     LogoutOutlined
 } from '@ant-design/icons';
 
@@ -69,6 +70,9 @@ function MainLayout(props) {
                     </Menu.Item>
                     <Menu.Item key="/postnewjob" icon={<PlusCircleOutlined />}>
                         <Link to="/postnewjob">Post New Job</Link>
+                    </Menu.Item>
+                    <Menu.Item key="/postedjobs" icon={<CheckCircleOutlined />}>
+                        <Link to="/postedjobs">Posted Jobs</Link>
                     </Menu.Item>
                     <Menu.Item key="/logout" icon={<LogoutOutlined />}>
                         <Popconfirm

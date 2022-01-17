@@ -43,9 +43,9 @@
   color: #ffffff;
 }
 .site-layout .user-info {
-  background-color: rgb(180, 232, 245);
-  border: 1px solid rgb(2, 56, 107);
-  border-radius: 1rem;
+  background-color: rgb(203, 224, 243);
+  border: 1px solid rgb(172, 203, 231);
+  border-radius: 1.5rem;
 }
 .site-layout .ant-layout-header .anticon > svg {
   color: rgb(2, 56, 107);
