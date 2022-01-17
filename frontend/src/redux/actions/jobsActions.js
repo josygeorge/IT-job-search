@@ -36,7 +36,6 @@ export const postNewJob = (values) => async dispatch => {
     }
 }
 export const editJob = (values) => async dispatch => {
-    console.log(values)
     // all fields are present in the values
     dispatch({ type: 'LOADING', payload: true })
     try {
@@ -44,6 +43,28 @@ export const editJob = (values) => async dispatch => {
         dispatch({ type: 'LOADING', payload: false });
         if (response) {
             message.success('Job Updated Successfully!')
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 1000)
+        }
+    } catch (error) {
+        dispatch({ type: 'LOADING', payload: false });
+        message.error(error)
+    }
+}
+export const applyForJob = (job) => async dispatch => {
+
+    //pass both user details and job details to server
+    const user = JSON.parse(localStorage.getItem('user'));
+    const values = [job, user];
+
+    // all fields are present in the values
+    dispatch({ type: 'LOADING', payload: true })
+    try {
+        const response = await Axios.post('/api/jobs/apply-for-job', values);
+        dispatch({ type: 'LOADING', payload: false });
+        if (response) {
+            message.success('Job Application Successfully Done!')
             setTimeout(() => {
                 window.location.href = '/';
             }, 1000)

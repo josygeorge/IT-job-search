@@ -21,7 +21,7 @@ function Login() {
                             <Input />
                         </Form.Item>
                         <Form.Item label="Password" name="password" rules={[{ required: true }]}>
-                            <Input />
+                            <Input type='password' />
                         </Form.Item>
                         <Button type="primary" htmlType='submit'>Login</Button>
                         <span className='px-3'>New User?</span>
